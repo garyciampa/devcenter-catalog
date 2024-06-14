@@ -34,7 +34,7 @@ tasks:
   - name: powershell
     parameters:
       command: |
-        net localgroup administrators /add "AzureAD\odl_user_1373548@msazurehol.onmicrosoft.com"
+        net localgroup administrators /add "AzureAD\upn@contoso.com"
       runAsUser: false
   - name: powershell
     parameters:
