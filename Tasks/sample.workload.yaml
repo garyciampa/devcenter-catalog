@@ -1,0 +1,53 @@
+$schema: '1.0'
+name: devbox-customization
+tasks:
+  - name: choco
+    parameters:
+      package: python3
+      version: 3.11.0
+  - name: choco
+    description: install googlechrome
+    parameters:
+      package: googlechrome
+  - name: choco
+    description: install nodejs
+    parameters:
+      package: nodejs
+  - name: choco
+    description: install github-desktop
+    parameters:
+      package: github-desktop      
+  - name: choco
+    description: install notepad++
+    parameters:
+      package: notepadplusplus
+  - name: choco
+    description: install vscode 
+    parameters:
+      package: vscode
+  - name: powershell
+    parameters:
+      command: |
+        # Install robot framework
+        python.exe -m pip install --upgrade pip;
+        pip install robotframework
+  - name: powershell
+    parameters:
+      command: |
+        net localgroup administrators /add "AzureAD\odl_user_1373548@msazurehol.onmicrosoft.com"
+      runAsUser: false
+  - name: powershell
+    parameters:
+      command: |
+        # Install WSL2 distros
+        wsl --install -d Ubuntu-22.04;
+
+        # Install VSCode extensions-ex
+        code --install-extension ms-python.python;
+        code --install-extension ms-vscode-remote.remote-wsl;
+        code --install-extension ms-vscode.vscode-node-azure-pack; 
+        code --install-extension ms-vscode.azure-account; 
+        code --install-extension github.copilot;
+        code --install-extension d-biehl.robotcode
+      runAsUser: true
+  - name: install-docker     
