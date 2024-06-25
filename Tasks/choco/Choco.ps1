@@ -5,7 +5,10 @@ param(
 
     [Parameter()]
     [string] $Version,
- 
+
+    [Parameter()]
+    [string] $Switches,
+  
     [Parameter()]
     [string] $IgnoreChecksums
 )
@@ -63,6 +66,7 @@ function Install-Package
         [string] $ChocoExePath,
         [string] $Package,
         [string] $Version,
+        [string] $Switches,        
         [string] $IgnoreChecksums
     )
 
@@ -70,6 +74,10 @@ function Install-Package
     
     if ($Version){
         $expression = "$expression --version $Version"
+    }
+
+    if ($Switches){
+        $expression = "$expression --params ''$Switches''"
     }
 
     $expression = "$expression -y -f --acceptlicense --no-progress --stoponfirstfailure"
