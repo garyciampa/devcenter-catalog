@@ -41,7 +41,7 @@ documentation:
       description: install azure functions core tools 
       parameters:
         package: azure-functions-core-tools
-        switches: x64
+        switches: /x64
     - name: choco
       description: install notepad++
       parameters:
