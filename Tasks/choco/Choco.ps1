@@ -145,6 +145,7 @@ Write-Host 'Ensuring latest Chocolatey version is installed.'
 Ensure-Chocolatey -ChocoExePath "$Choco"
 
 Write-Host "Preparing to install Chocolatey package: $Package."
+Write-Host "Command: $Choco -Package $Package -Version $Version -Switches $Switches -IgnoreChecksums $IgnoreChecksums" 
 Install-Package -ChocoExePath "$Choco" -Package $Package -Version $Version -Switches $Switches -IgnoreChecksums $IgnoreChecksums
 
 Write-Host "`nThe artifact was applied successfully.`n"
